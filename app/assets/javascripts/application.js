@@ -26,3 +26,7 @@ Temporal.detect();
 
 // Use this to initialize a datetimepicker for the datetimepicker form input. See also app/inputs for input details
 // $('.datetime').datetimepicker();
+
+$(document).on("show hide", ".accordion", function(e) {
+    return $(e.target).siblings(".accordion-heading").find(".accordion-toggle i").toggleClass("icon-chevron-down icon-chevron-right");
+});
