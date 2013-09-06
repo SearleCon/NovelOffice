@@ -1,0 +1,33 @@
+%h3 Frequently Asked Questions
+#accordion.accordion
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{data: {parent: "#accordion", toggle:  "collapse"}, href: "#questionOne"}
+        %p
+          %i.icon-chevron-down
+          1. What is a question?
+    #questionOne.accordion-body.collapse.in
+      .accordion-inner
+        = simple_format('What is an answer.')
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{data: {parent: "#accordion", toggle:  "collapse"}, href: "#questionTwo"}
+        %p
+          %i.icon-chevron-right
+          2. What is a question?
+    #questionTwo.accordion-body.collapse
+      .accordion-inner
+        = simple_format('What is an answer.')
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{data: {parent: "#accordion", toggle:  "collapse"}, href: "#questionThree"}
+        %p
+          %i.icon-chevron-right
+          2. What is a question?
+    #questionThree.accordion-body.collapse
+      .accordion-inner
+        = simple_format('What is an answer.')
+%br/
+%hr.bs-docs-separator/
+For more information on how NovelOffice works, check out the #{link_to 'About page', page_path('about')} or #{link_to 'Contact Us', new_contact_form_path}.
+
