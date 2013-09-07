@@ -1,0 +1,15 @@
+%h2 Novels
+%p Create a New Novel here:
+
+= render 'form'
+
+%p Here are your list of your Novels:
+
+%ul
+=@stories.each do |s|
+  %li=s.overview
+  =link_to 'Edit', edit_story_path(s)
+  |
+  =link_to 'Delete', s, :method => 'delete'
+  %br 
+  %br
