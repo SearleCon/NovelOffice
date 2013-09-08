@@ -1,4 +1,8 @@
 class StoriesController < ApplicationController
+  respond_to :html, :js, :json, :pdf
+
+  before_action :authenticate_user!
+
   def index
   	@story = Story.new
   	@stories = Story.all

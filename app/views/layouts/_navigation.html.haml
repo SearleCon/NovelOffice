@@ -6,6 +6,8 @@
   %li
     = link_to glyph(:question_sign, :white).concat(' Help'), '#', id: 'help'
   - if user_signed_in?
+    %li
+      = link_to 'Stories', stories_path
     %li.dropdown
       %a.dropdown-toggle{data:{toggle: "dropdown"}, href: "#"}
         Account
