@@ -5,7 +5,6 @@ class StoriesController < ApplicationController
 
   def index
   	@story = Story.new
-  	# @stories = Story.all
     @stories = Story.find_all_by_user_id(current_user.id)
   end
 

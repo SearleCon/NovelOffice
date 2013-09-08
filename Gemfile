@@ -87,7 +87,6 @@ gem 'rush'
 ## Access heroku worker scaling
 gem 'heroku-api'
 
-
 # App Responders - Sets flash in respond_with()
 gem 'responders', '1.0.0.rc'
 
