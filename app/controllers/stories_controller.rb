@@ -5,13 +5,20 @@ class StoriesController < ApplicationController
 
   def index
   	@story = Story.new
-  	@stories = Story.all
+  	# @stories = Story.all
+    @stories = Story.find_all_by_user_id(current_user.id)
   end
 
   def create
-  	# render :text => params.inspect
-  	Story.create(story_params)
-  	redirect_to :back
+  	 # render :text => params.inspect
+
+    @new_story = current_user.stories.build(story_params)
+    if @new_story.save!
+       redirect_to :back, :notice => "Novel added successfully"
+    else
+       redirect_to :back, :notice => "Error: Unable to save"
+    end
+
   end
 
   def edit
@@ -35,6 +42,6 @@ class StoriesController < ApplicationController
 # Use the below in Rails 4 instead of the attr_accessible as before
   private
     def story_params
-      params.require(:story).permit(:overview, :content)
+      params.require(:story).permit(:overview, :content, :user_id)
     end  
 end
