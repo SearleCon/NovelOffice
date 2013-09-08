@@ -1,4 +1,5 @@
 NovelOffice::Application.routes.draw do
+  get "scenes/index"
   get "stories/index"
   devise_for :users
 
@@ -24,7 +25,7 @@ NovelOffice::Application.routes.draw do
   resources :contact_forms, controller: :contact_form, only: [:new, :create]
 
   # Stories
-  resources :stories
+  resources :stories, :scenes
 
   # Handle errors
   match '(errors)/:status', to: 'errors#show', constraints: {status: /\d{3}/}, via: :all

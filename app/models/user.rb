@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
 
   has_many :stories
+  has_many :scenes
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

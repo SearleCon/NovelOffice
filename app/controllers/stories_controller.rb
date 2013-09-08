@@ -17,7 +17,6 @@ class StoriesController < ApplicationController
     else
        redirect_to :back, :notice => "Error: Unable to save"
     end
-
   end
 
   def edit

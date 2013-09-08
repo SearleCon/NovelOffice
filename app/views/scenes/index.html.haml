@@ -1,0 +1,20 @@
+%h2 Scenes
+%p Create a New Scene here:
+
+= render 'form'
+
+%p Here are your list of your Scenes:
+
+%ul
+-@scenes.each do |s|
+  %li= s.title
+  =link_to 'Edit', edit_scene_path(s)
+  |
+  =link_to 'Delete', s, :method => 'delete'
+  %br 
+  %br
+
+= content_for :sidebar do
+  - nav_list do
+    -@scenes.each do |s|
+      %li= link_to glyph(:home).concat(" "+s.title), edit_scene_path(s)

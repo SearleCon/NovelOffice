@@ -13,3 +13,9 @@
   =link_to 'Delete', s, :method => 'delete'
   %br 
   %br
+
+
+= content_for :sidebar do
+  - nav_list do
+    %li= link_to glyph(:home).concat(" Search Novels")
+    %li= link_to glyph(:home).concat(" Help"), scenes_path

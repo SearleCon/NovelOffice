@@ -1,2 +1,10 @@
-#h1 My Home Page
+#landing.span11
+  .row
+    .span6
+      - carousel('#myCarousel') do
+        - carousel_item(image: '600.png', active: true)
+        - carousel_item(image: '620.png') do
+          - carousel_caption(label: 'Jim', caption: 'Non')
 
+    .span4.well
+      = render partial: 'devise/sessions/form'
