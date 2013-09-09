@@ -7,15 +7,10 @@
 
 %ul
 -@stories.each do |s|
-  %li= s.overview
-  =link_to 'Edit', edit_story_path(s)
-  |
-  =link_to 'Delete', s, :method => 'delete'
-  %br 
-  %br
+  %li #{s.overview} | #{link_to 'Edit', edit_story_path(s)} | #{link_to 'Write', story_scenes_path(s)} | #{link_to 'Delete', s, :method => 'delete', :confirm => 'Are you sure?'}
 
 
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Search Novels")
-    %li= link_to glyph(:home).concat(" Help"), scenes_path
+    %li= link_to glyph(:home).concat(" Help"), stories_path

@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   # Allow non devise generated model fields to be permitted by strong parameters for devise
   # See lib/user_sanitizer.rb for more info
   def devise_parameter_sanitizer
-    User::ParameterSanitizer.new(User, :user, params)
+    UserSanitizer.new(User, :user, params)
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908150514) do
+ActiveRecord::Schema.define(version: 20130909083607) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20130908150514) do
     t.string   "title"
     t.text     "scene_content"
     t.integer  "story_id"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

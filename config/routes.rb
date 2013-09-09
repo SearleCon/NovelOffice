@@ -25,7 +25,9 @@ NovelOffice::Application.routes.draw do
   resources :contact_forms, controller: :contact_form, only: [:new, :create]
 
   # Stories
-  resources :stories, :scenes
+  resources :stories do
+    resources :scenes
+  end
 
   # Handle errors
   match '(errors)/:status', to: 'errors#show', constraints: {status: /\d{3}/}, via: :all
