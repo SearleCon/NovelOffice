@@ -1,10 +1,14 @@
-#landing.span11
+.span10.well
   .row
-    .span6
-      - carousel('#myCarousel') do
-        - carousel_item(image: '600.png', active: true)
-        - carousel_item(image: '620.png') do
-          - carousel_caption(label: 'Jim', caption: 'Non')
+  .col-lg-12
+    .page-header
+      %h1#container NovelOffice
+    .bs-example
+      .jumbotron
+        %h1 Write!
+        %p Everyone has at least one good story to tell... What's yours?
+        %p
+          %a.btn.btn-primary.btn-lg Learn more
 
-    .span4.well
-      = render partial: 'devise/sessions/form'
+.span3.well
+  = render partial: 'devise/sessions/form'

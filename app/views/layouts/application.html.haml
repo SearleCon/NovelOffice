@@ -17,17 +17,16 @@
           = render 'layouts/navigation'
     #main{role: "main"}
       .container
-        .content
-          = render 'layouts/browser_warning'
-          = render 'layouts/messages'
-          - if content_for?(:sidebar)
-            .sidebar
-              = yield(:sidebar)
-            .main-section-with-sidebar
-              = yield
-          - else
-            .main-section
-              = yield
+        = render 'layouts/browser_warning'
+        = render 'layouts/messages'
+        - if content_for?(:sidebar)
+          .sidebar
+            = yield(:sidebar)
+          .main-section-with-sidebar
+            = yield
+        - else
+          .main-section
+            = yield
     %footer.navbar.navbar-fixed-bottom.navbar-inverse
       .navbar-inner
         .container

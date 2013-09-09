@@ -1,7 +1,15 @@
-= link_to 'NovelOffice', root_path, class: 'brand'
-%ul.nav
-  %li.active
-    = link_to 'Home', root_path
+- if user_signed_in?
+  = link_to 'NovelOffice', stories_path, class: 'brand'
+- else
+  = link_to 'NovelOffice', root_path, class: 'brand'
+
+
+/ %ul.nav
+/   %li.active
+/     - if user_signed_in?
+/       = link_to 'Home', stories_path
+/     - else
+/       = link_to 'Home', root_path
 %ul.nav.pull-right
   %li
     = link_to glyph(:question_sign, :white).concat(' Help'), '#', id: 'help'

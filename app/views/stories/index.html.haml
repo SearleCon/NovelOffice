@@ -1,16 +1,20 @@
-%h2 Novels
-%p Create a New Novel here:
-
-= render 'form'
-
-%p Here are your list of your Novels:
-
-%ul
--@stories.each do |s|
-  %li #{s.overview} | #{link_to 'Edit', edit_story_path(s)} | #{link_to 'Write', story_scenes_path(s)} | #{link_to 'Delete', s, :method => 'delete', :confirm => 'Are you sure?'}
-
-
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Search Novels")
     %li= link_to glyph(:home).concat(" Help"), stories_path
+
+    %h2 Novels
+    %p Create a New Novel here:
+    = render 'form'
+
+-@stories.each do |s|
+  .span8.well
+    .bs-example
+      .jumbotron
+        %h1 #{s.overview}
+        %h6 (Last updated: #{s.updated_at})
+        %p #{s.content}
+        %p #{link_to 'Continue Writing', story_scenes_path(s)} | #{link_to 'Edit Title or Overview', edit_story_path(s)} | #{link_to 'Delete this Novel', s, :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
+          
+/ %p #{button_to 'Continue Writing', story_scenes_path(s), :class => "btn-primary"} | #{link_to 'Edit Title or Overview', edit_story_path(s)} | #{link_to 'Delete this Novel', s, :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
+/

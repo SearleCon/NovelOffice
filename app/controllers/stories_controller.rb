@@ -7,7 +7,7 @@ class StoriesController < ApplicationController
 
   def index
   	@story = Story.new
-    @stories = current_user.stories
+    @stories = current_user.stories.order("updated_at DESC")
   end
 
 
