@@ -1,0 +1,14 @@
+.span10.well
+  .row
+  .col-lg-12
+    .page-header
+      %h1#container Welcome to NovelOffice
+    .bs-example
+      .jumbotron
+        %h1 Novel writing software and tools.
+        %p Everyone has at least one good story to tell... What's yours?
+        %p
+          %a.btn.btn-primary.btn-lg Learn more
+
+.span3.well
+  = render partial: 'devise/sessions/form'

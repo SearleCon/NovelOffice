@@ -30,3 +30,12 @@ Temporal.detect();
 $(document).on("show hide", ".accordion", function(e) {
     return $(e.target).siblings(".accordion-heading").find(".accordion-toggle i").toggleClass("icon-chevron-down icon-chevron-right");
 });
+
+
+$(document).ready(function(){ 
+	$("a[href='#top']").click(function() {
+	  $("html, body").animate({ scrollTop: 0 }, "slow");
+	  return false;
+	});
+
+});
