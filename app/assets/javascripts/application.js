@@ -38,4 +38,25 @@ $(document).ready(function(){
 	  return false;
 	});
 
+   $('.span8.well').mouseenter(function() {
+       // $(this).animate({
+       //     height: '+=30px'
+       // });
+       $(this).css("box-shadow", "10px 10px 5px #888888");
+   });
+   $('.span8.well').mouseleave(function() {
+       // $(this).animate({
+       //     height: '-=30px'
+       // }); 
+       $(this).css("box-shadow", "none");
+   });
+
+	// $('.span8.well')
+	//   .css('cursor', 'pointer')
+	//   .click(
+	//     function(){
+	//      alert('Click event is fired');
+	//     });
+
+
 });

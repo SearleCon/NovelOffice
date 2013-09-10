@@ -1,7 +1,12 @@
+.span8.well
+  Welcome to your bookshelf, #{(current_user.name)}. You have #{@stories.count} novels in total.
+
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Search Novels")
     %li= link_to glyph(:home).concat(" Help"), stories_path
+    %li= link_to glyph(:home).concat(" Take the Tour"), stories_path
+
   
   %hr
   %h2 Novels
@@ -12,6 +17,9 @@
   %p Your Novels
   -@stories.each do |s|
     %li #{truncate(s.overview, :length => 20)} 
+
+  %hr
+  %img.img-rounded{:alt => "ZenNovel Logo", :src => "zn.png"}/
   
 -@stories.each do |s|
   .span8.well
@@ -21,7 +29,8 @@
         %h6 (Last updated: #{s.updated_at})
         %p #{s.content}
         %p #{link_to 'Continue Writing', story_scenes_path(s)} | #{link_to 'Edit Title or Overview', edit_story_path(s)} | #{link_to 'Delete this Novel', s, :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
-          
+  
+
 / %p #{button_to 'Continue Writing', story_scenes_path(s), :class => "btn-primary"} | #{link_to 'Edit Title or Overview', edit_story_path(s)} | #{link_to 'Delete this Novel', s, :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
 /
 
