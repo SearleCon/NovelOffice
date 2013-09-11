@@ -42,13 +42,24 @@ $(document).ready(function(){
        // $(this).animate({
        //     height: '+=30px'
        // });
-       $(this).css("box-shadow", "10px 10px 5px #888888");
+       // $(this).css("box-shadow", "10px 10px 5px #888888");
    });
    $('.span8.well').mouseleave(function() {
        // $(this).animate({
        //     height: '-=30px'
        // }); 
+       // $(this).css("box-shadow", "none");
+   });
+
+   $('.span8.well_shadow').mouseenter(function() {
+       $(this).css("box-shadow", "10px 10px 5px #888888");
+       $(this).css("border", "1px solid")
+
+   });
+   $('.span8.well_shadow').mouseleave(function() {
        $(this).css("box-shadow", "none");
+       $(this).css("border", "none")
+
    });
 
 	// $('.span8.well')

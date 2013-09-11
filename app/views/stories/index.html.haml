@@ -19,7 +19,9 @@
     %li #{truncate(s.overview, :length => 20)} 
 
   %hr
-  %img.img-rounded{:alt => "ZenNovel Logo", :src => "zn.png"}/
+  / %img.img-rounded{:alt => "ZenNovel Logo", :src => "zn.png"}/
+  = image_tag('zn.png', alt: 'zennovellogo', class: 'img-rounded')
+
   
 -@stories.each do |s|
   .span8.well

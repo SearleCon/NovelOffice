@@ -1,4 +1,5 @@
-/ %img.img-rounded{:alt => "ZenNovel Logo", :src => "znh.png"}/
+/ %img{:alt => "ZenNovel Logo", :src => "znh.png"}/
+= image_tag('znh.png', alt: 'zennovellogo', class: 'img-rounded')
 - if user_signed_in?
   = link_to 'ZenNovel', stories_path, class: 'brand'
 - else
