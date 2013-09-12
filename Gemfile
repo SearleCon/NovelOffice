@@ -38,6 +38,8 @@ gem 'bootstrap-datetimepicker-rails'
 ## Bootstrap alert/confirmation boxes
 gem 'bootbox-rails'
 
+gem 'stamp'
+
 # Static Pages
 ## Add static pages to pages folder.
 ## Use page_path('pagename') for routing.

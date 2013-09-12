@@ -12,15 +12,23 @@ class ScenesController < ApplicationController
 
 
 
-  def create
-    @story = current_user.stories.find(params[:story_id])
-    @new_scene = @story.scenes.build(scene_params)
+  # def create
+  #   @story = current_user.stories.find(params[:story_id])
+  #   @new_scene = @story.scenes.build(scene_params)
 
-    if @new_scene.save!
-       redirect_to :back, :notice => "Scene added successfully"
-    else
-       redirect_to :back, :notice => "Error: Unable to save"
-    end
+  #   if @new_scene.save!
+  #      redirect_to :back, :notice => "Scene added successfully"
+  #   else
+  #      redirect_to :back, :notice => "Error: Unable to save"
+  #   end
+  # end
+
+
+  def create
+      @story = current_user.stories.find(params[:story_id])
+      @scene = @story.scenes.build(scene_params)
+      @scene.save
+      respond_with([@story,@scene], location: story_scenes_url(@story), :notice => "Your scene has been saved")
   end
 
 

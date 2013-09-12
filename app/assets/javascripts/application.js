@@ -62,12 +62,27 @@ $(document).ready(function(){
 
    });
 
-	// $('.span8.well')
+// Click on the div to call it's child records (story -> its scenes)
+   $('.story')
+	  .css('cursor', 'pointer')
+	  .click(
+	    function(){
+	      window.location.href  = $(this).data('path');
+	    });
+
+	// $('.span8.well_shadow')
 	//   .css('cursor', 'pointer')
 	//   .click(
 	//     function(){
-	//      alert('Click event is fired');
+	//      // alert('Click event is fired');
+	//      window.location.href = "http://www.google.com"
 	//     });
 
+     // $('.span8.well_shadow')
+     //    .css('cursor', 'pointer')
+     //   .click(
+     //     function(){
+     //          window.location.href  = $(this).data('path');
+     //     });
 
 });

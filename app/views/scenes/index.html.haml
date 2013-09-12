@@ -1,6 +1,16 @@
 .span9.well
   %h3{:align => "center"} #{@story.overview}: #{@scenes.count} scene(s)
 
+.span9.well
+  -@scenes.each do |s|
+    .span8.well_shadow
+      %h5 #{s.title}
+      %p #{s.scene_content}
+      %p{:align => "right"} #{link_to 'Edit scene', edit_story_scene_path(@story, s)} | #{link_to 'Delete this Scene', story_scene_path(@story, s), :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
+
+/ %p #{button_to 'Continue Writing', story_scenes_path(s), :class => "btn-primary"} | #{link_to 'Edit Title or Overview', edit_story_path(s)} | #{link_to 'Delete this Novel', s, :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
+/
+
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Search Novels")
@@ -10,29 +20,21 @@
 
   
   %hr
-  %h2 Scenes
-  %p Quick Scene:
-  = render 'new_scene'
-  
-  %hr
   %p Your Current Scenes
   -@scenes.each do |s|
     %li #{truncate(s.title, :length => 20)} 
+
+
+  %hr
+  %h2 Scenes
+  %p Quick Scene:
+  = render 'new_scene'
 
   %hr
   / %img.img-rounded{:alt => "ZenNovel Logo", :src => "zn.png"}/
   = image_tag('zn.png', alt: 'zennovellogo', class: 'img-rounded')
 
 .span9.well
-  -@scenes.each do |s|
-    .span8.well_shadow
-      %h5 #{s.title}
-      %p #{s.scene_content}
-      %p #{link_to 'Edit scene', edit_story_scene_path(@story, s)} | #{link_to 'Delete this Scene', story_scene_path(@story, s), :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
-  
-
-/ %p #{button_to 'Continue Writing', story_scenes_path(s), :class => "btn-primary"} | #{link_to 'Edit Title or Overview', edit_story_path(s)} | #{link_to 'Delete this Novel', s, :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
-/
-
-%div{:style => "float:right; text-align:center"}
-  %a{:href => "#top"} Back to Top
+  %h4 You have reaced the end of your Scenes for this Novel
+  %div{:style => "float:right; text-align:center"}
+    %a{:href => "#top"} Back to Top
