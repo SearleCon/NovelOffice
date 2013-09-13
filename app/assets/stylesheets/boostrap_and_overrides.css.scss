@@ -48,8 +48,25 @@ body {
 }
 
 
-a { 
-      }
-      .inv {
-        color: yellow;
-      }
+
+
+ul
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 10px;
+}
+
+li.scene {
+    padding: 0;
+    margin: 0px;
+    cursor: pointer;
+
+}
+
+
+li.scene:hover {
+  color: red;
+  background: #fbebe9;
+  border: 1px solid #ccc;
+}
