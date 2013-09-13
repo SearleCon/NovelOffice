@@ -1,12 +1,31 @@
 .span9.well
   %h3{:align => "center"} #{@story.overview}: #{@scenes.count} scene(s)
 
+
+
+
 .span9.well
-  -@scenes.each do |s|
-    .span8.well_shadow
-      %h5 #{s.title}
-      %p #{s.scene_content}
-      %p{:align => "right"} #{link_to 'Edit scene', edit_story_scene_path(@story, s)} | #{link_to 'Delete this Scene', story_scene_path(@story, s), :method => 'delete', data: { confirm: 'Are you sure you want to DELETE this Novel? This cannot be undone!' }}
+  #accordion.panel-group
+    -@scenes.each_with_index do |s, index|  
+      .span8.well_shadow
+        .panel.panel-default
+          .panel-heading
+            %h4.panel-title
+              %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#scene_#{index}"}
+                #{s.title}
+          .panel-collapse.collapse.in{id: "scene_#{index}"}
+            .panel-body
+              %p #{s.scene_content}
+              %p{:align => "right"} #{link_to 'Edit scene', edit_story_scene_path(@story, s)} | #{link_to 'Delete this Scene', story_scene_path(@story, s), :method => 'delete', data: { confirm: 'Are you sure you want to DELETE this Novel? This cannot be undone!' }}
+ 
+
+
+/ .span9.well
+/   -@scenes.each do |s|
+/     .span8.well_shadow
+/       %h5 #{s.title}
+/       %p #{s.scene_content}
+/       %p{:align => "right"} #{link_to 'Edit scene', edit_story_scene_path(@story, s)} | #{link_to 'Delete this Scene', story_scene_path(@story, s), :method => 'delete', data: { confirm: 'Are you sure you want to DELETE this Novel? This cannot be undone!' }}
 
 
 / Below is the QJuery-UI bits
@@ -59,6 +78,9 @@
   = image_tag('zn.png', alt: 'zennovellogo', class: 'img-rounded')
 
 .span9.well
-  %h4 You have reaced the end of your Scenes for this Novel
+  %h4 You have reached the end of your Scenes for this Novel
   %div{:style => "float:right; text-align:center"}
     %a{:href => "#top"} Back to Top
+
+
+
