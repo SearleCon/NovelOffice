@@ -124,4 +124,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
+group :production do
+  # Post Gres
+  gem 'pg'
+end
