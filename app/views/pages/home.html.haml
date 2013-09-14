@@ -1,86 +1,51 @@
 .container-fluid
   .row-fluid
     .span12
-      #carousel-732807.carousel.slide
-        %ol.carousel-indicators
-          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-732807"}
-          %li{"data-slide-to" => "1", "data-target" => "#carousel-732807"}
-          %li{"data-slide-to" => "2", "data-target" => "#carousel-732807"}
-        .carousel-inner
-          .item.active
-            %img{:alt => "", :src => "http://lorempixel.com/1600/500/sports/1"}/
-            .carousel-caption
-              %h4
-                First Thumbnail label
-              %p
-                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-          .item
-            %img{:alt => "", :src => "http://lorempixel.com/1600/500/sports/2"}/
-            .carousel-caption
-              %h4
-                Second Thumbnail label
-              %p
-                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-          .item
-            %img{:alt => "", :src => "http://lorempixel.com/1600/500/sports/3"}/
-            .carousel-caption
-              %h4
-                Third Thumbnail label
-              %p
-                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-        %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-732807"} ‹
-        %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-732807"} ›
-      .row-fluid
-        .span6
-          .hero-unit.well
-            %h1
-              ZenNovel
-              = image_tag('zn3.png', alt: 'zennovellogo', class: 'img-rounded')
-            %p
-              Novel writing software and tools.
-            %p Everyone has at least one good story to tell... What's yours?
-            %p
-              %a.btn.btn-primary.btn-large{:href => "#"} Learn more »
-        .span6
-          .hero-unit.well
-            = render partial: 'devise/sessions/form'
-      %ul.thumbnails
-        %li.span4
-          .thumbnail
-            %img{:alt => "300x200", :src => "http://lorempixel.com/600/200/people"}/
-            .caption
-              %h3
-                Thumbnail label
-              %p
-                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-              %p
-                %a.btn.btn-primary{:href => "#"} Action
-                %a.btn{:href => "#"} Action
-        %li.span4
-          .thumbnail
-            %img{:alt => "300x200", :src => "http://lorempixel.com/600/200/city"}/
-            .caption
-              %h3
-                Thumbnail label
-              %p
-                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-              %p
-                %a.btn.btn-primary{:href => "#"} Action
-                %a.btn{:href => "#"} Action
-        %li.span4
-          .thumbnail
-            %img{:alt => "300x200", :src => "http://lorempixel.com/600/200/sports"}/
-            .caption
-              %h3
-                Thumbnail label
-              %p
-                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-              %p
-                %a.btn.btn-primary{:href => "#"} Action
-                %a.btn{:href => "#"} Action
-      %blockquote
+      .hero-unit
+        %h1
+          = image_tag('zn3s.png', alt: 'zennovellogo', class: 'img-rounded')
+          ZenNovel
+        %p{:align => "center"}
+          Novel Writing Software. Everyone has at least one good story to tell. What's yours?
         %p
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-        %small
-          Someone famous
-          %cite Source Title
+  
+      .hero-unit
+        %ul.thumbnails
+          %li.span4
+            .thumbnail
+              %img{:alt => "300x200", :src => "http://lorempixel.com/600/200/people"}/
+              .caption
+                %h3
+                  Thumbnail label
+                %p
+                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                %p
+                  %a.btn.btn-primary.btn-large{:href => "#"} Learn more »
+          %li.span4
+            .thumbnail
+              %img{:alt => "300x200", :src => "http://lorempixel.com/600/200/city"}/
+              .caption
+                %h3
+                  Thumbnail label
+                %p
+                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                %p
+                  %a.btn.btn-primary.btn-large{:href => "#"} Learn more »
+          %li.span4
+            .thumbnail
+              %img{:alt => "300x200", :src => "http://lorempixel.com/600/200/sports"}/
+              .caption
+                %h3
+                  Thumbnail label
+                %p
+                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                %p
+                  %a.btn.btn-primary.btn-large{:href => "#"} Learn more »
+
+      / .row-fluid  
+      /   .span6
+      /     .hero-unit.well
+      /       = render partial: 'devise/sessions/form'
+      /   .span6
+      /     .hero-unit.well
+      /       = render partial: 'devise/sessions/form'    

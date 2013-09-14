@@ -2,9 +2,9 @@
 %html
   %head
     %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
-    %title= content_for?(:title) ? yield(:title) : "NovelOffice"
-    %meta{content: content_for?(:description) ? yield(:description) : "NovelOffice", name: "description"}
-    %meta{content: content_for?(:keywords) ? yield(:keywords) : "NovelOffice", name: "keywords"}
+    %title= content_for?(:title) ? yield(:title) : "ZenNovel - Novel Writing Software"
+    %meta{content: content_for?(:description) ? yield(:description) : "ZenNovel", name: "description"}
+    %meta{content: content_for?(:keywords) ? yield(:keywords) : "ZenNovel", name: "keywords"}
     = stylesheet_link_tag :application, :media => "all"
     = javascript_include_tag :application
     = javascript_include_tag controller_path if Rails.application.assets.find_asset "#{controller_name}.js.coffee"

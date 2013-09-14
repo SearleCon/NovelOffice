@@ -27,7 +27,7 @@ body {
   @include makeColumn(10);
 }
 .main-section{
-  @include makeColumn(12);
+  @include makeColumn(14); /* Was 12 */
 }
 
 .content {
