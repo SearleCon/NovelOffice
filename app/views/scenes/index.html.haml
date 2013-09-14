@@ -12,12 +12,13 @@
           .panel-heading
             %h4.panel-title
               %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#scene_#{index}"}
-                #{s.title}
+                %h4 #{s.title}
           .panel-collapse.collapse.in{id: "scene_#{index}"}
             .panel-body
               %p #{s.scene_content}
               %p{:align => "right"} #{link_to 'Edit scene', edit_story_scene_path(@story, s)} | #{link_to 'Delete this Scene', story_scene_path(@story, s), :method => 'delete', data: { confirm: 'Are you sure you want to DELETE this Novel? This cannot be undone!' }}
  
+
 
 
 / .span9.well
@@ -46,6 +47,51 @@
     $( "ul, li" ).disableSelection();
   });
 / Above is the QJuery-UI bits
+
+
+
+
+
+
+
+
+
+
+
+/ JQuery-UI code for Dragging and Sorting of the items
+:javascript
+  $(function() {
+    $( "#accordion" )
+      .accordion({
+        header: "> div > h4"
+      })
+      .sortable({
+        axis: "y",
+        handle: "h4",
+        stop: function( event, ui ) {
+          // IE doesn't register the blur when sorting
+          // so trigger focusout handlers to remove .ui-state-focus
+          ui.item.children( "h4" ).triggerHandler( "focusout" );
+        }
+      });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 = content_for :sidebar do
@@ -78,9 +124,8 @@
   = image_tag('zn.png', alt: 'zennovellogo', class: 'img-rounded')
 
 .span9.well
-  %h4 You have reached the end of your Scenes for this Novel
+  %h4 You have reached the end of your Scenes for this Novel.
+  %p © Copyright <span id="year">TEXT</span> #{current_user.name} - All Rights Reserved.
   %div{:style => "float:right; text-align:center"}
     %a{:href => "#top"} Back to Top
-
-
 

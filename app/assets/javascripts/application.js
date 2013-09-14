@@ -86,4 +86,9 @@ $(document).ready(function(){
      //          window.location.href  = $(this).data('path');
      //     });
 
+
+  var currentYear = (new Date).getFullYear();
+  $("#year").text( (new Date).getFullYear() );
+
+
 });
