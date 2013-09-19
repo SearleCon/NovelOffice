@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.effect.all
 //= require jquery.turbolinks
 //= require bootstrap
 //= require bootstrap-datetimepicker
@@ -38,53 +39,6 @@ $(document).ready(function(){
 	  $("html, body").animate({ scrollTop: 0 }, "slow");
 	  return false;
 	});
-
-   $('.span8.well').mouseenter(function() {
-       // $(this).animate({
-       //     height: '+=30px'
-       // });
-       // $(this).css("box-shadow", "10px 10px 5px #888888");
-   });
-   $('.span8.well').mouseleave(function() {
-       // $(this).animate({
-       //     height: '-=30px'
-       // }); 
-       // $(this).css("box-shadow", "none");
-   });
-
-   $('.span8.well_shadow').mouseenter(function() {
-       $(this).css("box-shadow", "10px 10px 5px #888888");
-       $(this).css("border", "1px solid")
-
-   });
-   $('.span8.well_shadow').mouseleave(function() {
-       $(this).css("box-shadow", "none");
-       $(this).css("border", "none")
-
-   });
-
-// Click on the div to call it's child records (story -> its scenes)
-   $('.story')
-	  .css('cursor', 'pointer')
-	  .click(
-	    function(){
-	      window.location.href  = $(this).data('path');
-	    });
-
-	// $('.span8.well_shadow')
-	//   .css('cursor', 'pointer')
-	//   .click(
-	//     function(){
-	//      // alert('Click event is fired');
-	//      window.location.href = "http://www.google.com"
-	//     });
-
-     // $('.span8.well_shadow')
-     //    .css('cursor', 'pointer')
-     //   .click(
-     //     function(){
-     //          window.location.href  = $(this).data('path');
-     //     });
 
 
   var currentYear = (new Date).getFullYear();

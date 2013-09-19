@@ -3,53 +3,48 @@ class StoriesController < ApplicationController
 
   before_action :authenticate_user!
 
-
-
   def index
-  	@story = Story.new
-    @stories = current_user.stories.order("updated_at DESC")
+    @stories = current_user.stories.order(updated_at: :desc)
   end
-
-
 
   def create
-    @new_story = current_user.stories.build(story_params)
-    if @new_story.save!
-       redirect_to :back, :notice => "Novel added successfully"
-    else
-       redirect_to :back, :notice => "Error: Unable to save"
-    end
+    @story = build_story(story_params)
+    @story.save
+    respond_with(@story, location: stories_url)
   end
-
-
 
   def edit
-  	@story = Story.find params[:id]
+  	@story = find_story(params[:id])
   end
-
 
 
   def update
-  	story = Story.find params[:id]
-  	if story.update_attributes(story_params)
-  		redirect_to stories_path, :notice => "Novel details updated successfully"
-  	else
-  		redirect_to :back, :notice => "There was an error updating your Novel"
-  	end
+    @story = find_story(params[:id])
+  	@story.update(story_params)
+    respond_with(@story, location: stories_url)
   end
-
 
 
   def destroy
-  	Story.destroy params[:id]
-  	redirect_to :back, :notice => "The Novel was successfully deleted"
+    @story = find_story(params[:id])
+    @story.destroy
+    respond_with(@story)
   end
 
-
-
-# Use the below in Rails 4 instead of the attr_accessible as before
   private
+    def build_story(attributes)
+      current_user.stories.build(attributes)
+    end
+
+    def find_story(id)
+      current_user.stories.find(id)
+    end
+
     def story_params
       params.require(:story).permit(:overview, :content, :user_id)
-    end  
+    end
+
+    def interpolation_options
+      { resource_name: 'Novel'  ,errors: @story.errors.full_messages.join(',')}
+    end
 end

@@ -1,0 +1,9 @@
+- unless @story.errors.any?
+  $('#create_story').html('#{j render 'stories/form'}');
+  $('#{j render @story}').hide().prependTo('#stories').fadeIn('slow', function(){$(this).children('.well_shadow').effect("highlight", {}, 3000);});
+  $('<li>#{truncate(@story.overview, length: 20)} </li>').prependTo('#story-list');
+
+$('#flash').html('#{j render('layouts/messages')}');
+
+
+

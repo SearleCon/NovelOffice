@@ -1,42 +1,30 @@
-.span8.well
-  Welcome to your bookshelf, #{(current_user.name)}. You have #{@stories.count} novels in total.
-
 = content_for :sidebar do
   - nav_list do
     %li= link_to glyph(:home).concat(" Search Novels")
     %li= link_to glyph(:home).concat(" Help"), stories_path
     %li= link_to glyph(:home).concat(" Take the Tour"), stories_path
-
-  
   %hr
   %h2 Novels
   %p Create a New Novel here:
-  = render 'form'
-  
+  #create_story
+    = render 'form'
+
   %hr
   %p Your Novels
-  -@stories.each do |s|
-    %li #{truncate(s.overview, :length => 20)} 
+  %ul{id: 'story-list'}
+    -@stories.each do |s|
+      %li= truncate(s.overview, length: 20)
+
+.well
+  Welcome to your bookshelf, #{(current_user.name.capitalize)}. You have #{@stories.size} novels in total.
 
   %hr
-  / %img.img-rounded{:alt => "ZenNovel Logo", :src => "zn.png"}/
   = image_tag('zn.png', alt: 'zennovellogo', class: 'img-rounded')
 
-  
--@stories.each do |s|
-  .span8.well_shadow[s]{data: {path: story_scenes_path(s)}}
-    .bs-example
-      .jumbotron
-        %h1 #{s.overview}
-        %h6 (Last updated: #{s.updated_at.to_s(:default)})
-        %p #{s.content}
-  %p{:align => "right"} #{link_to 'Continue Writing', story_scenes_path(s)} | #{link_to 'Edit Title or Overview', edit_story_path(s)} | #{link_to 'Delete this Novel', s, :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
+#stories= render @stories
 
-
-/ %p #{button_to 'Continue Writing', story_scenes_path(s), :class => "btn-primary"} | #{link_to 'Edit Title or Overview', edit_story_path(s)} | #{link_to 'Delete this Novel', s, :method => 'delete', :confirm => 'Are you sure you want to DELETE this Novel? This cannot be undone!'}
-/
-
-.span8.well
+%br
+.well
   %h4 You have reaced the end of your Novel list
-  %div{:style => "float:right; text-align:center"}
-    %a{:href => "#top"} Back to Top
+  %div{style: "float:right; text-align:center"}
+    %a{href: "#top"} Back to Top
