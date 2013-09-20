@@ -4,12 +4,12 @@
 
 
 $ ->
- $(document).on 'click', '.linked_story', ->
+ $(document).on 'click', '.story-details', ->
    window.location.href  = $(this).data('path');
 
- $(document).on 'mouseenter', '.well_shadow', ->
+ $(document).on 'mouseenter', '.story-details', ->
   $(this).addClass('raised')
 
- $(document).on 'mouseleave', '.well_shadow', ->
+ $(document).on 'mouseleave', '.story-details', ->
   $(this).removeClass('raised')
 

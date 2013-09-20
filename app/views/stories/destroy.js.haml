@@ -1,2 +1,4 @@
 - if @story.destroyed?
   $("##{dom_id(@story)}").fadeOut('slow', function(){ $(this).remove();});
+  $('#story-list').html('#{j render 'stories/story_list', stories: current_user.stories.order(updated_at: :desc)}');
+

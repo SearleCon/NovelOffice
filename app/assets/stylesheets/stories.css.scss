@@ -1,6 +1,19 @@
 .stories{
-  .linked_story:hover{
+
+  .story-details{
+    background-color:white;
+    padding: 20px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+  }
+  .story-details:hover{
     cursor: pointer;
+  }
+
+  #story-list{
+    ul{
+      list-style-type: square;
+    }
   }
 
   .raised{

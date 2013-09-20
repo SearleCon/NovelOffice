@@ -1,0 +1,4 @@
+%h4 Your Novels
+%ul
+  =list_of(stories) do |story|
+    =truncate(story.overview, length: 20)
