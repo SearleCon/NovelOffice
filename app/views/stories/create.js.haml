@@ -1,6 +1,6 @@
 - unless @story.errors.any?
   $('#create_story_form')[0].reset();
-  $('#{j render @story}').hide().prependTo('#stories').fadeIn('slow', function(){$(this).children('.story-details').effect("highlight", {}, 3000);});
+  $('#{j render @story}').hide().prependTo('#stories').fadeIn('slow', function(){$(this).children('.story-details').effect("highlight", {}, 1500);});
   $('#story-list').html('#{j render 'stories/story_list', stories: current_user.stories.order(updated_at: :desc)}');
 
 

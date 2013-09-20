@@ -1,0 +1,11 @@
+#edit_story_modal.modal.hide.fade{aria_hidden:  'true', aria_labelledby: 'editStoryLabel', role: "dialog", tabindex: "-1"}
+  .modal-header
+    %button.close{aria_hidden: "true", data: {dismiss: "modal"}, type: "button"} ×
+    %h3#editStoryLabel Edit Story
+  = simple_form_for @story,defaults: { required: false }, remote: true do |f|
+    .modal-body
+      #edit_errors= errors_for @story
+      = f.input :overview
+      = f.input :content
+    .modal-footer
+      = f.button :submit, 'Update', class: 'btn btn-primary'

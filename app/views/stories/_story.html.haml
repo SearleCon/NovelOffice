@@ -1,9 +1,8 @@
 %div[story]
   .story-details[story]{data: {path: story_scenes_path(story)}}
     .jumbotron
-      %h1=story.overview
+      %h1.editable=story.overview
       %h6="(Last updated: #{story.updated_at})"
-      %p=simple_format(story.content)
+      %p.editable=simple_format(story.content)
   .story-actions
-    %p.pull-right #{link_to 'Continue Writing', story_scenes_path(story)} | #{link_to 'Edit Title or Overview', edit_story_path(story)} | #{link_to 'Delete this Novel', story, method: :delete, data: {confirm: 'Are you sure you want to DELETE this Novel? This cannot be undone!'}, remote: true}
-%br
+    %p.pull-right #{link_to 'Continue Writing', story_scenes_path(story)} | #{link_to 'Edit Title or Overview', edit_story_path(story), remote: true} | #{link_to 'Delete this Novel', story, method: :delete, data: {confirm: 'Are you sure you want to DELETE this Novel? This cannot be undone!'}, remote: true}

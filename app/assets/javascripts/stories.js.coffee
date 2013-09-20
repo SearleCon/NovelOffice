@@ -4,6 +4,7 @@
 
 
 $ ->
+
  $(document).on 'click', '.story-details', ->
    window.location.href  = $(this).data('path');
 

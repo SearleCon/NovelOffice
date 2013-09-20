@@ -95,6 +95,7 @@ gem 'heroku-api'
 # App Responders - Sets flash in respond_with()
 gem 'responders', '1.0.0.rc'
 
+
 group :development do
   gem "better_errors"
   gem 'annotate', '~> 2.5.0'

@@ -14,13 +14,11 @@
 
 .well
   Welcome to your bookshelf, #{(current_user.name.capitalize)}. You have #{@stories.size} novels in total.
-
   %hr
   = image_tag('zn.png', alt: 'zennovellogo', class: 'img-rounded')
 
 #stories= render @stories
 
-%br
 .well
   %h4 You have reached the end of your Novel list
   .pull-right

@@ -1,0 +1,10 @@
+- if @story.errors.any?
+ $('#edit_errors').html("#{j errors_for(@story)}");
+- else
+ $('#edit_story_modal').modal('hide');
+ $('body').remove('#edit_story_modal');
+ $('##{dom_id(@story)}').remove();
+ $('#{j render @story}').prependTo('#stories').children('.story-details').effect('highlight', {}, 1000);
+ $('#story-list').html('#{j render 'stories/story_list', stories: current_user.stories.order(updated_at: :desc)}');
+
+
