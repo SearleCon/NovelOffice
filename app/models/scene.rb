@@ -1,3 +1,6 @@
 class Scene < ActiveRecord::Base
-	belongs_to :story, touch: true
+  include RankedModel
+
+  belongs_to :story, touch: true
+  ranks :row_order
 end

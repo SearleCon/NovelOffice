@@ -1,0 +1,3 @@
+- unless @scene.errors.any?
+  $('.scene-list').html('#{j render 'scenes/scene_list', scenes: @story.scenes.rank(:row_order)}');
+  $('#scenes').html('#{j render @story.scenes.rank(:row_order)}');

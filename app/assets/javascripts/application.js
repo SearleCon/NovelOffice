@@ -12,11 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.effect.all
+//= require jquery.ui.all
 //= require jquery.turbolinks
 //= require bootstrap
 //= require bootstrap-datetimepicker
-//= require bootbox
+//= require twitter/bootstrap/rails/confirm
 //= require temporal
 //= require turbolinks
 //= require_tree .
@@ -24,6 +24,7 @@
 // Detect time zone see http://danilenko.org/2012/7/6/rails_timezones for more info about time and time zones
 Temporal.detect();
 
+$.fn.twitter_bootstrap_confirmbox.defaults.title = 'ZenNovel';
 
 // Use this to initialize a datetimepicker for the datetimepicker form input. See also app/inputs for input details
 // $('.datetime').datetimepicker();

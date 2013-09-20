@@ -1,6 +1,5 @@
 NovelOffice::Application.routes.draw do
-  get "scenes/index"
-  get "stories/index"
+
   devise_for :users
 
   # Root paths

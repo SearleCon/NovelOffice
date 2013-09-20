@@ -1,0 +1,2 @@
+- scenes.each do |s|
+  %li{data: {scene_id: s.id, update_url: story_scene_path(@story,s) }}= truncate(s.title, length: 20)

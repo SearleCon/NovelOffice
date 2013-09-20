@@ -1,0 +1,43 @@
+.scenes{
+
+
+  .scene{
+    margin-bottom: 3em;
+  }
+
+  .scene-details{
+    background-color:white;
+    padding: 20px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+  }
+  .scene-details:hover{
+    cursor: pointer;
+  }
+
+  .scene-list{
+
+    list-style-type: none;
+    padding: 0;
+    margin: 10px;
+
+    li {
+      padding: 0;
+      margin: 0px;
+      cursor: pointer;
+
+    }
+
+
+    li:hover {
+      color: red;
+      background: #fbebe9;
+    }
+
+  }
+
+  .raised{
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid;
+  }
+}

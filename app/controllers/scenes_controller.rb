@@ -3,65 +3,53 @@ class ScenesController < ApplicationController
 
   before_action :authenticate_user!
 
-
-
   def index
-    @story = Story.find(params[:story_id])
-    @scenes = @story.scenes
+    @story = find_story(params[:story_id])
+    @scenes = @story.scenes.rank(:row_order)
   end
-
-
-
-  # def create
-  #   @story = current_user.stories.find(params[:story_id])
-  #   @new_scene = @story.scenes.build(scene_params)
-
-  #   if @new_scene.save!
-  #      redirect_to :back, :notice => "Scene added successfully"
-  #   else
-  #      redirect_to :back, :notice => "Error: Unable to save"
-  #   end
-  # end
-
 
   def create
-      @story = current_user.stories.find(params[:story_id])
-      @scene = @story.scenes.build(scene_params)
+      @story = find_story(params[:story_id])
+      @scene = build_scene(scene_params)
       @scene.save
-      respond_with([@story,@scene], location: story_scenes_url(@story), :notice => "Your scene has been saved")
+      respond_with(@story,@scene,location: story_scenes_url)
   end
-
-
 
   def edit
-    @story  = current_user.stories.find(params[:story_id])
-  	@scene = Scene.find params[:id]
+    @story = find_story(params[:story_id])
+  	@scene = find_scene (params[:id])
   end
-
-
 
   def update
-  	scene = Scene.find params[:id]
-  	if scene.update_attributes(scene_params)
-  		redirect_to :back, :notice => "Scene updated successfully"
-  	else
-  		redirect_to :back, :notice => "There was an error saving the scene"
-  	end
+    @story = find_story(params[:story_id])
+    @scene = find_scene (params[:id])
+  	@scene.update(scene_params)
+    respond_with(@story, @scene, location: story_scenes_url)
   end
-
-
 
   def destroy
-  	Scene.destroy params[:id]
-  	redirect_to :back, :notice => "The scene was successfully deleted"
+    @story = find_story(params[:story_id])
+    @scene = find_scene (params[:id])
+    @scene.destroy
+    respond_with(@story, @scene)
   end
-
-
 
 # Use the below in Rails 4 instead of the attr_accessible as before
   private
+    def find_story(id)
+      current_user.stories.find(id)
+    end
+
+    def find_scene(id)
+      @story.scenes.find(id)
+    end
+
+    def build_scene(attributes)
+      @story.scenes.build(attributes)
+    end
+
     def scene_params
-      params.require(:scene).permit(:title, :scene_content)
+      params.require(:scene).permit(:title, :scene_content, :row_order_position)
     end
 
 end

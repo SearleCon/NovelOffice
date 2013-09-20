@@ -1,0 +1,8 @@
+%div[scene]{data: {scene_id: scene.id, update_url: story_scene_path(@story,scene) }}
+ .scene-details
+  %a{data: {target: "#scene#{scene_counter}", toggle: "collapse"}}
+   %h4=scene.title
+  .scene-content.collapse.in{id: "scene#{scene_counter}"}
+   %p= simple_format(scene.scene_content)
+ .scene-actions
+  %p.pull-right #{link_to 'Edit Scene', edit_story_scene_path(@story, scene)} | #{link_to('Delete this Scene', story_scene_path(@story, scene), method: :delete, data: {confirm: 'test'})}

@@ -5,7 +5,6 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.0'
 
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -14,7 +13,6 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,16 +36,16 @@ gem 'normalize-rails'
 gem 'bootswatch-rails'
 ## Bootstrap DateTimePicker
 gem 'bootstrap-datetimepicker-rails'
-## Bootstrap alert/confirmation boxes
-gem 'bootbox-rails'
+## Confirm dialogs
+gem 'twitter-bootstrap-rails-confirm'
 
+#Date Formatting
 gem 'stamp'
 
 # Static Pages
 ## Add static pages to pages folder.
 ## Use page_path('pagename') for routing.
 gem "high_voltage"
-
 
 # Authentication
 gem 'devise', "~> 3.0.0"
@@ -68,20 +66,17 @@ gem 'puma'
 # Env variables
 gem "figaro"
 
-
 # Format emails nicely
 gem 'premailer-rails'
 
 # Preview Mail
 gem "mail_view", "~> 1.0.3"
 
-
 # Contact Form
 gem 'mail_form', '1.5.0.rc'
 
 # Place Holder Images
 gem 'placeholdit'
-
 
 # Background Processing
 gem "delayed_job", "~> 4.0.0.beta2"
@@ -94,6 +89,10 @@ gem 'heroku-api'
 
 # App Responders - Sets flash in respond_with()
 gem 'responders', '1.0.0.rc'
+
+
+# Ranked Model
+gem 'ranked-model'
 
 
 group :development do

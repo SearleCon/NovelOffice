@@ -1,4 +1,4 @@
-=simple_form_for [@story, @story.scenes.build] do |f|
+=simple_form_for :scene, url: story_scenes_path do |f|
   =f.input :title
   =f.input :scene_content
   =f.submit

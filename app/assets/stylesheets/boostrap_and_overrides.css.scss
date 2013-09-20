@@ -41,32 +41,9 @@ body {
 
 .well_shadow {
     background-color:white;
-    /*border:1px solid;*/
     padding: 20px;
     border-radius: 50px;
     margin-bottom: 5px;
 }
 
 
-
-
-ul
-{
-    list-style-type: none;
-    padding: 0;
-    margin: 10px;
-}
-
-li.scene {
-    padding: 0;
-    margin: 0px;
-    cursor: pointer;
-
-}
-
-
-li.scene:hover {
-  color: red;
-  background: #fbebe9;
-  /*border: 1px solid #ccc;*/
-}
